@@ -1,0 +1,21 @@
+client:
+  demoModule: # demoModule声明
+    destination: http://localhost:8080/jaxrs
+#    signature:
+#      keyId: app00001
+#      algorithm: HmacSHA256
+#      hmacKey: Davidoff is handsome # 默认的HmacKeyStore方案
+  amqpModule:
+    destination: amqp://localhost:5672/demo
+    username: demo
+    password: demo
+
+jaxrs: # 定义jaxrs client的logger级别
+  logger:
+    level:
+      client: none #默认DEBUG
+
+amqp: # 定义amqp client的logger级别
+  logger:
+    level:
+      client: INFO #默认DEBUG

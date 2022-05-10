@@ -1,0 +1,2 @@
+destination: rabbitmq:amqp://demo:demo@localhost:5672/demo
+# serializer: json #指定使用json序列化消息内容

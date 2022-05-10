@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>concrete-demo-051</artifactId>
+        <groupId>org.coodex.concrete.demo</groupId>
+        <version>0.5.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>demo-boot</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- swagger支持，方便查看和实验而已，非必须 -->
+        <dependency>
+            <groupId>org.coodex.concrete.jaxrs</groupId>
+            <artifactId>concrete-jaxrs-swagger</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.coodex.concrete</groupId>
+            <artifactId>concrete-core-mock</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.coodex.concrete</groupId>
+            <artifactId>concrete-apm-zipkin</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.coodex.concrete</groupId>
+            <artifactId>concrete-courier-rabbitmq</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>demo-impl</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.coodex</groupId>
+            <artifactId>coodex-renderer-freemarker</artifactId>
+        </dependency>
+
+        <!-- 使用javax.inject规范, spring-boot也支持 -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+
+        <!-- 使用concrete的spring boot jaxrs组件发布服务 -->
+        <dependency>
+            <groupId>org.coodex.concrete.jaxrs</groupId>
+            <artifactId>concrete-jaxrs-spring-boot</artifactId>
+        </dependency>
+
+        <!-- 使用concrete的spring boot amqp发布服务 -->
+        <dependency>
+            <groupId>org.coodex.concrete.amqp</groupId>
+            <artifactId>concrete-amqp-spring-boot</artifactId>
+        </dependency>
+
+        <!-- spring-cloud-alibaba 服务自动注册与发现 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>

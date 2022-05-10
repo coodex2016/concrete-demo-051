@@ -1,0 +1,2 @@
+demo: # @MaximumConcurrency中的strategy，针对同一个应用服务，可以定义多个策略
+  max: 3

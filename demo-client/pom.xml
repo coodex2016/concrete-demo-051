@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>concrete-demo-051</artifactId>
+        <groupId>org.coodex.concrete.demo</groupId>
+        <version>0.5.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>demo-client</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- 依赖api模块 -->
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>demo-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- 调用jaxrs发布的concrete服务 -->
+        <dependency>
+            <groupId>org.coodex.concrete.jaxrs</groupId>
+            <artifactId>concrete-jaxrs-client</artifactId>
+        </dependency>
+
+        <!-- 调用amqp发布的concrete服务 -->
+        <dependency>
+            <groupId>org.coodex.concrete.amqp</groupId>
+            <artifactId>concrete-amqp-client</artifactId>
+        </dependency>
+
+        <!-- 以下：jersey相关依赖 -->
+        <!-- 使用jersey作为jaxrs2.0的provider -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+        </dependency>
+        <!-- jersey的jackson插件-->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+        </dependency>
+
+        <!-- jersey使用hk2的InjectionManagerFactory模块 -->
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+        <!-- 以上：jersey相关依赖 -->
+
+        <!-- 因为不在spring-boot环境里，所以显示依赖log4j-slf4j-impl显示调试信息 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </dependency>
+
+        <!-- 使用jackson2作为json序列化provider。concrete默认使用fastjson作为json序列化框架，不引入此模块则需依赖fastjson -->
+        <dependency>
+            <groupId>org.coodex.concrete</groupId>
+            <artifactId>concrete-serializer-jackson2</artifactId>
+        </dependency>
+
+        <!-- 引入snakeyaml后，coodex Profile可自动支持yml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

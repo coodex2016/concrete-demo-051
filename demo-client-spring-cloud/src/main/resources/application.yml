@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: demo # demo命名空间
+concrete:
+  jaxrs:
+    logger:
+      level:
+        client: INFO
+  client:
+    spring-cloud-client-demo: # demoModule声明
+      destination: http://demo-service/jaxrs
+      microService: true # 使用微服务的方式调用

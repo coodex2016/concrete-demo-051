@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.coodex.concrete.demo</groupId>
+    <artifactId>concrete-demo-051</artifactId>
+    <packaging>pom</packaging>
+    <version>0.5.1-SNAPSHOT</version>
+    <modules>
+        <module>demo-api</module>
+        <module>demo-impl</module>
+        <module>demo-boot</module>
+        <module>demo-client</module>
+        <module>demo-client-spring-cloud</module>
+    </modules>
+
+    <name>A Concrete Demo</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <concrete.version>0.5.1-SNAPSHOT</concrete.version>
+    </properties>
+
+    <profiles>
+        <!-- 文档编写过程基于快照版，因此需要添加sonatype的快照库 -->
+        <profile>
+            <id>sonatype-snapshot</id>
+            <repositories>
+                <repository>
+                    <id>oss.sonatype.org-snapshot</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.coodex.concrete</groupId>
+                <artifactId>concrete-bom</artifactId>
+                <version>${concrete.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2021.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
